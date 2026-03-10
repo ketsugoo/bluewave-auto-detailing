@@ -3,6 +3,7 @@
 <head>
 
 <title>BlueWave Auto Detailing</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -10,31 +11,33 @@
 body{
 font-family:Arial;
 margin:0;
-background:#000;
+background:black;
 color:white;
 text-align:center;
 }
 
+/* HERO HEADER */
+
 header{
-background:linear-gradient(135deg,#000,#0d47a1);
-padding:120px 20px;
-position:relative;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
+url("https://images.unsplash.com/photo-1503376780353-7e6692767b70");
+background-size:cover;
+background-position:center;
+animation:zoom 18s infinite alternate;
 }
 
-header::after{
-content:"";
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
-height:120px;
-background:linear-gradient(90deg,#007BFF,#00c3ff);
-clip-path: polygon(0 60%, 20% 70%, 40% 60%, 60% 75%, 80% 60%, 100% 70%, 100% 100%, 0 100%);
+@keyframes zoom{
+0%{background-size:100%;}
+100%{background-size:110%;}
 }
 
-h1{
-font-size:46px;
-margin-bottom:10px;
+.hero h1{
+font-size:55px;
 }
 
 .phone{
@@ -45,6 +48,7 @@ padding:10px 20px;
 border-radius:8px;
 display:inline-block;
 font-weight:bold;
+margin-top:10px;
 }
 
 button{
@@ -58,9 +62,13 @@ border-radius:8px;
 cursor:pointer;
 }
 
+/* SECTIONS */
+
 section{
 padding:60px 20px;
 }
+
+/* SERVICES */
 
 .services{
 display:flex;
@@ -76,6 +84,8 @@ border-radius:10px;
 width:250px;
 }
 
+/* GALLERY */
+
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -88,6 +98,8 @@ margin:auto;
 width:100%;
 border-radius:10px;
 }
+
+/* FORM */
 
 form{
 max-width:420px;
@@ -103,6 +115,8 @@ border:none;
 border-radius:6px;
 }
 
+/* FOOTER */
+
 footer{
 background:black;
 padding:25px;
@@ -115,7 +129,11 @@ margin-top:40px;
 
 <body>
 
+<!-- HERO -->
+
 <header>
+
+<div class="hero">
 
 <h1>BlueWave Auto Detailing</h1>
 
@@ -127,11 +145,15 @@ margin-top:40px;
 <br>
 
 <a href="tel:3462406030">
-<button>Book Your Detail</button>
+<button>Call Now</button>
 </a>
+
+</div>
 
 </header>
 
+
+<!-- SERVICES -->
 
 <section>
 
@@ -168,6 +190,8 @@ margin-top:40px;
 </section>
 
 
+<!-- GALLERY -->
+
 <section>
 
 <h2>Detailing Results</h2>
@@ -175,8 +199,11 @@ margin-top:40px;
 <div class="gallery">
 
 <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+
 <img src="https://images.unsplash.com/photo-1549921296-3c4f6b1e3f6b">
+
 <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a">
+
 <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d">
 
 </div>
@@ -184,11 +211,56 @@ margin-top:40px;
 </section>
 
 
+<!-- CALENDAR BOOKING -->
+
+<section>
+
+<h2>Book Your Detail</h2>
+
+<div class="calendly-inline-widget"
+data-url="https://calendly.com/bluewave-detailing"
+style="min-width:320px;height:700px;">
+</div>
+
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+</section>
+
+
+<!-- PAYMENT -->
+
+<section>
+
+<h2>Pay Online</h2>
+
+<p>Select your service and pay securely.</p>
+
+<a href="YOUR_STRIPE_PAYMENT_LINK_1">
+<button>Exterior Wash - $60</button>
+</a>
+
+<br><br>
+
+<a href="YOUR_STRIPE_PAYMENT_LINK_2">
+<button>Interior Detail - $120</button>
+</a>
+
+<br><br>
+
+<a href="YOUR_STRIPE_PAYMENT_LINK_3">
+<button>Full Detail - $200</button>
+</a>
+
+</section>
+
+
+<!-- BOOKING FORM -->
+
 <section>
 
 <h2>Request a Booking</h2>
 
-<form name="booking" method="POST" data-netlify="true">
+<form name="booking" method="POST" data-netlify="true" action="/success.html">
 
 <input type="hidden" name="form-name" value="booking">
 
@@ -204,6 +276,8 @@ margin-top:40px;
 
 </section>
 
+
+<!-- MAP -->
 
 <section>
 
@@ -224,6 +298,7 @@ src="https://www.google.com/maps?q=Houston,Texas&output=embed">
 <footer>
 
 <p>© 2026 BlueWave Auto Detailing</p>
+
 <p>Houston, Texas</p>
 
 </footer>
