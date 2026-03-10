@@ -15,14 +15,15 @@ color:white;
 text-align:center;
 }
 
-/* HERO */
+/* HERO HEADER */
 
 header{
 height:90vh;
 display:flex;
-align-items:center;
+align-items:flex-start;
 justify-content:center;
 text-align:center;
+padding-top:80px;
 background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
 url("https://images.unsplash.com/photo-1503376780353-7e6692767b70");
 background-size:cover;
@@ -35,8 +36,8 @@ margin-bottom:10px;
 }
 
 .motto{
-color:#4da3ff;
-font-size:20px;
+color:gold;
+font-size:22px;
 margin-bottom:20px;
 }
 
@@ -66,6 +67,8 @@ button:hover{
 background:#005ad1;
 }
 
+/* SECTIONS */
+
 section{
 padding:70px 20px;
 }
@@ -91,33 +94,35 @@ box-shadow:0 0 20px rgba(0,0,0,.6);
 color:#4da3ff;
 }
 
-/* BEFORE AFTER */
+/* ANIMATED CAR */
 
-.compare-container{
-position:relative;
-max-width:700px;
-margin:auto;
-overflow:hidden;
-border-radius:10px;
+.car-section{
+margin-top:30px;
 }
 
-.compare-container img{
-width:100%;
-display:block;
+.car{
+font-size:90px;
+animation:drive 6s linear infinite;
 }
 
-.compare-overlay{
-position:absolute;
-top:0;
-left:0;
-height:100%;
-width:50%;
-overflow:hidden;
+@keyframes drive{
+0%{transform:translateX(-200px);}
+50%{transform:translateX(200px);}
+100%{transform:translateX(-200px);}
 }
 
-#sliderRange{
-width:100%;
-margin-top:15px;
+/* PRICE CALCULATOR */
+
+select{
+padding:10px;
+border-radius:6px;
+border:none;
+}
+
+.price{
+margin-top:20px;
+font-size:24px;
+color:#4da3ff;
 }
 
 /* FORM */
@@ -208,21 +213,13 @@ margin-top:40px;
 </section>
 
 
-<section>
+<section class="car-section">
 
-<h2>Before & After Transformation</h2>
+<h2>Professional Mobile Detailing</h2>
 
-<div class="compare-container">
+<div class="car">🚗</div>
 
-<img src="https://images.unsplash.com/photo-1542367597-8849eb9703b1">
-
-<div class="compare-overlay" id="overlay">
-<img src="https://images.unsplash.com/photo-1542367597-8849eb9703b1">
-</div>
-
-<input type="range" min="0" max="100" value="50" id="sliderRange">
-
-</div>
+<p>We bring the shine directly to you.</p>
 
 </section>
 
@@ -239,7 +236,7 @@ margin-top:40px;
 
 </select>
 
-<div id="price" style="margin-top:20px;font-size:24px;color:#4da3ff;">$80</div>
+<div class="price" id="price">$80</div>
 
 </section>
 
@@ -299,17 +296,7 @@ vehicle.onchange = function(){
 price.innerText = "$" + vehicle.value;
 };
 
-/* BEFORE AFTER SLIDER */
-
-const slider = document.getElementById("sliderRange");
-const overlay = document.getElementById("overlay");
-
-slider.addEventListener("input", function(){
-overlay.style.width = slider.value + "%";
-});
-
 </script>
 
 </body>
 </html>
-
