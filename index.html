@@ -9,7 +9,7 @@
 <style>
 
 body{
-font-family: Arial;
+font-family:Arial;
 margin:0;
 background:#0b0b0b;
 color:white;
@@ -17,51 +17,104 @@ text-align:center;
 }
 
 header{
-background:linear-gradient(90deg,#000,#007BFF);
-padding:60px;
+background:url("https://images.unsplash.com/photo-1607863680198-23d4b2565df0") center/cover no-repeat;
+padding:120px 20px;
+position:relative;
+}
+
+header::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+}
+
+.header-content{
+position:relative;
+z-index:2;
 }
 
 h1{
-font-size:40px;
-margin:0;
+font-size:45px;
+margin-bottom:10px;
+}
+
+.phone{
+font-size:26px;
+background:white;
+color:black;
+display:inline-block;
+padding:10px 20px;
+border-radius:8px;
+font-weight:bold;
+}
+
+button{
+margin-top:25px;
+padding:15px 30px;
+font-size:18px;
+border:none;
+background:#007BFF;
+color:white;
+border-radius:8px;
+cursor:pointer;
 }
 
 section{
-padding:50px 20px;
+padding:60px 20px;
 }
 
 .services{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:20px;
+gap:25px;
 }
 
-.service-box{
+.service{
 background:#1a1a1a;
 padding:25px;
 border-radius:10px;
 width:250px;
 }
 
-button{
-background:#007BFF;
-border:none;
-padding:15px 25px;
-font-size:18px;
-color:white;
-border-radius:8px;
-cursor:pointer;
-margin-top:20px;
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+max-width:900px;
+margin:auto;
 }
 
-button:hover{
-background:#0056b3;
+.gallery img{
+width:100%;
+border-radius:10px;
+}
+
+form{
+max-width:400px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input,textarea{
+padding:12px;
+border:none;
+border-radius:6px;
+}
+
+.map{
+margin-top:40px;
 }
 
 footer{
 background:black;
-padding:20px;
+padding:25px;
 margin-top:40px;
 }
 
@@ -73,19 +126,26 @@ margin-top:40px;
 
 <header>
 
+<div class="header-content">
+
 <h1>BlueWave Auto Detailing</h1>
 
 <p>Professional Mobile Car Detailing</p>
 
 <p>Serving Houston & Surrounding Areas</p>
 
-<h2>Call or Text: 346-240-6030</h2>
+<div class="phone">Call or Text: 346-240-6030</div>
+
+<br>
 
 <a href="tel:3462406030">
-<button>Book Now</button>
+<button>Book Your Detail</button>
 </a>
 
+</div>
+
 </header>
+
 
 <section>
 
@@ -93,44 +153,88 @@ margin-top:40px;
 
 <div class="services">
 
-<div class="service-box">
+<div class="service">
 <h3>Exterior Wash</h3>
-<p>Foam wash, wheel cleaning, tire shine, hand dry.</p>
-<p><strong>Starting at $60</strong></p>
+<p>Foam wash, wheels cleaned, tire shine.</p>
+<p><strong>$60+</strong></p>
 </div>
 
-<div class="service-box">
+<div class="service">
 <h3>Interior Detail</h3>
-<p>Vacuum, dashboard cleaning, carpet cleaning, windows.</p>
-<p><strong>Starting at $120</strong></p>
+<p>Vacuum, dashboard cleaning, carpet shampoo.</p>
+<p><strong>$120+</strong></p>
 </div>
 
-<div class="service-box">
+<div class="service">
 <h3>Full Detail</h3>
-<p>Interior and exterior deep cleaning with wax protection.</p>
-<p><strong>Starting at $200</strong></p>
+<p>Complete interior & exterior deep clean.</p>
+<p><strong>$200+</strong></p>
 </div>
 
-<div class="service-box">
+<div class="service">
 <h3>Headlight Restoration</h3>
-<p>Restore foggy headlights and improve visibility.</p>
-<p><strong>Starting at $80</strong></p>
+<p>Remove foggy headlights.</p>
+<p><strong>$80+</strong></p>
 </div>
 
 </div>
 
 </section>
+
 
 <section>
 
-<h2>Why Choose Us?</h2>
+<h2>Before & After Results</h2>
 
-<p>✔ Mobile detailing – we come to you</p>
-<p>✔ Professional equipment</p>
-<p>✔ Quality cleaning products</p>
-<p>✔ Fast and reliable service</p>
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd">
+
+<img src="https://images.unsplash.com/photo-1603386329225-868f9b1ee6a9">
+
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+
+<img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d">
+
+</div>
 
 </section>
+
+
+<section>
+
+<h2>Request a Booking</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="tel" placeholder="Phone Number">
+
+<textarea placeholder="What service do you need?"></textarea>
+
+<button type="submit">Submit Request</button>
+
+</form>
+
+</section>
+
+
+<section class="map">
+
+<h2>Service Area</h2>
+
+<iframe
+width="90%"
+height="300"
+style="border:0"
+loading="lazy"
+allowfullscreen
+src="https://www.google.com/maps?q=Houston,Texas&output=embed">
+</iframe>
+
+</section>
+
 
 <footer>
 
