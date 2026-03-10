@@ -3,6 +3,7 @@
 <head>
 
 <title>BlueWave Auto Detailing</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
@@ -29,7 +30,7 @@ font-size:42px;
 margin:0;
 }
 
-/* PHONE BOX */
+/* PHONE */
 
 .phone{
 font-size:26px;
@@ -39,55 +40,21 @@ padding:12px 24px;
 border-radius:12px;
 display:inline-block;
 font-weight:bold;
-position:relative;
 margin-top:20px;
 }
 
-/* WATER DRIP */
-
-.phone::after{
-content:"";
-position:absolute;
-top:100%;
-left:45%;
-width:6px;
-height:20px;
-background:#00aaff;
-border-radius:10px;
-animation:drip 2s infinite;
-}
-
-@keyframes drip{
-0%{transform:translateY(-10px);opacity:0;}
-50%{opacity:1;}
-100%{transform:translateY(25px);opacity:0;}
-}
-
-/* HERO CAR */
+/* HERO BACKGROUND */
 
 .hero{
 position:relative;
 height:65vh;
-background:url("https://images.unsplash.com/photo-1503376780353-7e6692767b70") center/cover no-repeat;
+background:url("https://images.unsplash.com/photo-1503376780353-7e6692767b70") no-repeat center bottom;
+background-size:70%;
+background-color:#050505;
 overflow:hidden;
 }
 
-/* WATER DROPLETS */
-
-.hero::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:url("https://i.imgur.com/MK4NUzI.png");
-background-size:250px;
-opacity:.35;
-pointer-events:none;
-}
-
-/* WATER WAVE */
+/* BLUE WAVE SHINE */
 
 .hero::after{
 content:"";
@@ -99,8 +66,8 @@ height:100%;
 background:linear-gradient(
 120deg,
 transparent,
-rgba(0,140,255,0.4),
-rgba(0,180,255,0.5),
+rgba(0,140,255,0.35),
+rgba(0,180,255,0.45),
 transparent
 );
 animation:wave 7s infinite linear;
@@ -111,7 +78,7 @@ animation:wave 7s infinite linear;
 100%{left:100%;}
 }
 
-/* CALL BUTTON */
+/* BUTTON */
 
 button{
 margin-top:25px;
@@ -136,11 +103,13 @@ font-size:22px;
 margin-top:40px;
 }
 
-/* SERVICES */
+/* SECTIONS */
 
 section{
 padding:60px 20px;
 }
+
+/* SERVICES */
 
 .services{
 display:flex;
@@ -161,7 +130,7 @@ box-shadow:0 0 20px rgba(0,0,0,.6);
 color:#4da3ff;
 }
 
-/* CAMARO ANIMATION */
+/* MOVING CAR */
 
 .car-container{
 overflow:hidden;
@@ -169,18 +138,18 @@ width:100%;
 margin-top:40px;
 }
 
-.camaro{
-width:260px;
+.car{
+font-size:90px;
 position:relative;
-animation:drive 8s linear infinite;
+animation:drive 7s linear infinite;
 }
 
 @keyframes drive{
-0%{left:-300px;}
+0%{left:-200px;}
 100%{left:110%;}
 }
 
-/* PRICE */
+/* PRICE CALCULATOR */
 
 select{
 padding:10px;
@@ -240,7 +209,6 @@ margin-top:40px;
 
 <p class="motto">Where Every Detail Makes a Difference</p>
 
-
 <section>
 
 <h2>Our Services</h2>
@@ -275,21 +243,19 @@ margin-top:40px;
 
 </section>
 
-
 <section>
 
 <h2>Luxury Mobile Detailing</h2>
 
 <div class="car-container">
 
-<img class="camaro" src="https://i.imgur.com/J5q9R6P.png">
+<div class="car">🚗</div>
 
 </div>
 
 <p>We bring showroom shine directly to you.</p>
 
 </section>
-
 
 <section>
 
@@ -306,7 +272,6 @@ margin-top:40px;
 <div class="price" id="price">$80</div>
 
 </section>
-
 
 <section>
 
@@ -328,7 +293,6 @@ margin-top:40px;
 
 </section>
 
-
 <section>
 
 <h2>Service Area</h2>
@@ -344,13 +308,11 @@ src="https://www.google.com/maps?q=Houston,Texas&output=embed">
 
 </section>
 
-
 <footer>
 
 <p>© 2026 BlueWave Auto Detailing</p>
 
 </footer>
-
 
 <script>
 
