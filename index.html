@@ -15,7 +15,7 @@ color:white;
 text-align:center;
 }
 
-/* HEADER */
+/* HERO */
 
 header{
 height:90vh;
@@ -27,16 +27,34 @@ background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
 url("https://images.unsplash.com/photo-1503376780353-7e6692767b70");
 background-size:cover;
 background-position:center;
+position:relative;
+overflow:hidden;
+}
+
+/* WATER DROPLET ANIMATION */
+
+header::after{
+content:"";
+position:absolute;
+width:200%;
+height:200%;
+background-image:radial-gradient(rgba(255,255,255,.08) 2px, transparent 2px);
+background-size:40px 40px;
+animation:waterMove 20s linear infinite;
+}
+
+@keyframes waterMove{
+0%{transform:translateY(0);}
+100%{transform:translateY(200px);}
+}
+
+.hero{
+position:relative;
+z-index:2;
 }
 
 .hero h1{
 font-size:60px;
-letter-spacing:2px;
-}
-
-.hero p{
-font-size:18px;
-opacity:.9;
 }
 
 .phone{
@@ -67,8 +85,6 @@ background:#005ad1;
 transform:scale(1.05);
 }
 
-/* SECTION */
-
 section{
 padding:70px 20px;
 }
@@ -87,39 +103,67 @@ background:rgba(255,255,255,0.05);
 padding:30px;
 border-radius:12px;
 width:260px;
-backdrop-filter:blur(10px);
 box-shadow:0 0 20px rgba(0,0,0,.6);
-transition:.3s;
-}
-
-.service:hover{
-transform:translateY(-5px);
 }
 
 .service h3{
 color:#4da3ff;
 }
 
-/* GALLERY */
+/* BEFORE AFTER SLIDER */
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-max-width:1000px;
+.compare-container{
+position:relative;
+max-width:700px;
 margin:auto;
 }
 
-.gallery img{
+.compare-container img{
 width:100%;
+display:block;
 border-radius:10px;
 }
 
-/* PAYMENT */
+.compare-overlay{
+position:absolute;
+top:0;
+left:0;
+width:50%;
+overflow:hidden;
+}
 
-.payments button{
-width:260px;
-margin:10px;
+.slider{
+position:absolute;
+top:0;
+bottom:0;
+left:50%;
+width:4px;
+background:white;
+cursor:ew-resize;
+}
+
+/* QUOTE CALCULATOR */
+
+.calculator{
+max-width:400px;
+margin:auto;
+background:#111;
+padding:30px;
+border-radius:10px;
+}
+
+select{
+padding:10px;
+width:100%;
+margin-top:10px;
+border:none;
+border-radius:6px;
+}
+
+.price{
+margin-top:20px;
+font-size:22px;
+color:#4da3ff;
 }
 
 /* FORM */
@@ -138,14 +182,10 @@ border:none;
 border-radius:6px;
 }
 
-/* FOOTER */
-
 footer{
 background:black;
 padding:30px;
 margin-top:40px;
-font-size:14px;
-opacity:.8;
 }
 
 </style>
@@ -160,10 +200,9 @@ opacity:.8;
 
 <h1>BlueWave Auto Detailing</h1>
 
-<p>Professional Mobile Car Detailing</p>
-<p>Serving Houston & Surrounding Areas</p>
+<p>Luxury Mobile Car Detailing</p>
 
-<div class="phone">Call or Text: 346-240-6030</div>
+<div class="phone">346-240-6030</div>
 
 <br>
 
@@ -202,7 +241,7 @@ opacity:.8;
 
 <div class="service">
 <h3>Headlight Restoration</h3>
-<p>Remove foggy headlights.</p>
+<p>Restore cloudy headlights.</p>
 <p><strong>$80+</strong></p>
 </div>
 
@@ -213,17 +252,17 @@ opacity:.8;
 
 <section>
 
-<h2>Detailing Results</h2>
+<h2>Before & After Transformation</h2>
 
-<div class="gallery">
+<div class="compare-container">
 
+<img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98">
+
+<div class="compare-overlay" id="overlay">
 <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+</div>
 
-<img src="https://images.unsplash.com/photo-1549921296-3c4f6b1e3f6b">
-
-<img src="https://images.unsplash.com/photo-1502877338535-766e1452684a">
-
-<img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d">
+<div class="slider" id="slider"></div>
 
 </div>
 
@@ -232,17 +271,21 @@ opacity:.8;
 
 <section>
 
-<h2>Payment Options</h2>
+<h2>Instant Price Estimate</h2>
 
-<p>Select your service below. Payment is completed during the appointment.</p>
+<div class="calculator">
 
-<div class="payments">
+<label>Select Vehicle Type</label>
 
-<button>Exterior Wash — $80</button>
+<select id="vehicle">
 
-<button>Interior Detail — $120</button>
+<option value="80">Sedan — $80 Exterior</option>
+<option value="100">SUV — $100 Exterior</option>
+<option value="120">Truck — $120 Exterior</option>
 
-<button>Full Detail — $200</button>
+</select>
+
+<div class="price" id="price">$80</div>
 
 </div>
 
@@ -290,9 +333,36 @@ src="https://www.google.com/maps?q=Houston,Texas&output=embed">
 
 <p>© 2026 BlueWave Auto Detailing</p>
 
-<p>Houston, Texas</p>
-
 </footer>
+
+
+<script>
+
+/* QUOTE CALCULATOR */
+
+var vehicle = document.getElementById("vehicle");
+var price = document.getElementById("price");
+
+vehicle.onchange = function(){
+price.innerText = "$" + vehicle.value;
+};
+
+/* BEFORE AFTER SLIDER */
+
+const slider = document.getElementById("slider");
+const overlay = document.getElementById("overlay");
+
+slider.onmousemove = slider.ontouchmove = function(e){
+
+let rect = slider.parentElement.getBoundingClientRect();
+let x = e.clientX - rect.left;
+
+overlay.style.width = x + "px";
+slider.style.left = x + "px";
+
+};
+
+</script>
 
 </body>
 </html>
