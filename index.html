@@ -33,73 +33,66 @@ color:#3aa3ff;
 letter-spacing:2px;
 }
 
-/* HERO BLUE WAVE BACKGROUND */
+/* HERO SECTION */
 
 .hero{
 position:relative;
-height:70vh;
+height:75vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 overflow:hidden;
-background:black;
+
+background:
+radial-gradient(circle at 50% 120%, rgba(255,0,60,0.35), transparent 45%),
+radial-gradient(circle at 50% -20%, rgba(0,150,255,0.35), transparent 40%),
+linear-gradient(#020408,#000000);
 }
 
-/* WAVE LAYER 1 */
+/* ROAD REFLECTION */
 
 .hero::before{
 content:"";
 position:absolute;
-width:200%;
-height:200%;
-top:-50%;
-left:-50%;
+bottom:0;
+width:100%;
+height:45%;
 
-background:
-repeating-radial-gradient(
-circle at 70% 60%,
-#00d0ff 0px,
-#00d0ff 2px,
-#0040ff 4px,
-transparent 6px
+background:linear-gradient(
+to bottom,
+rgba(0,0,0,0),
+rgba(255,0,80,0.15),
+rgba(0,120,255,0.15),
+rgba(0,0,0,0.9)
 );
 
-filter:blur(4px);
-opacity:.8;
-
-animation:waveMove 18s linear infinite;
+filter:blur(10px);
 }
 
-/* WAVE LAYER 2 */
+/* LIGHT GLOW */
 
 .hero::after{
 content:"";
 position:absolute;
+top:-100px;
+left:-100%;
 width:200%;
-height:200%;
-top:-40%;
-left:-40%;
+height:300px;
 
-background:
-repeating-radial-gradient(
-circle at 60% 70%,
-#00f2ff 0px,
-#00f2ff 2px,
-#001cff 4px,
-transparent 6px
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.12),
+transparent
 );
 
-opacity:.5;
-filter:blur(6px);
-
-animation:waveMove2 25s linear infinite;
+animation:lightSweep 8s infinite linear;
 }
 
-@keyframes waveMove{
-0%{transform:rotate(0deg) scale(1);}
-100%{transform:rotate(360deg) scale(1.2);}
-}
-
-@keyframes waveMove2{
-0%{transform:rotate(360deg) scale(1);}
-100%{transform:rotate(0deg) scale(1.3);}
+@keyframes lightSweep{
+0%{left:-100%;}
+100%{left:100%;}
 }
 
 /* PHONE */
@@ -110,10 +103,8 @@ background:white;
 color:#007BFF;
 padding:12px 24px;
 border-radius:12px;
-display:inline-block;
 font-weight:bold;
 margin-top:20px;
-position:relative;
 z-index:2;
 }
 
@@ -129,7 +120,6 @@ color:white;
 border-radius:8px;
 cursor:pointer;
 transition:.3s;
-position:relative;
 z-index:2;
 }
 
@@ -143,7 +133,6 @@ background:#005ad1;
 color:gold;
 font-size:22px;
 margin-top:20px;
-position:relative;
 z-index:2;
 }
 
@@ -193,7 +182,7 @@ animation:drive 7s linear infinite;
 100%{left:110%;}
 }
 
-/* PRICE CALCULATOR */
+/* PRICE */
 
 select{
 padding:10px;
@@ -310,45 +299,3 @@ margin-top:40px;
 </select>
 
 <div class="price" id="price">$80</div>
-
-</section>
-
-<section>
-
-<h2>Request a Booking</h2>
-
-<form name="booking" method="POST" data-netlify="true">
-
-<input type="hidden" name="form-name" value="booking">
-
-<input type="text" name="name" placeholder="Your Name" required>
-
-<input type="tel" name="phone" placeholder="Phone Number" required>
-
-<textarea name="service" placeholder="What service do you need?" required></textarea>
-
-<button type="submit">Send Booking Request</button>
-
-</form>
-
-</section>
-
-<footer>
-
-<p>© 2026 BlueWave Auto Detailing</p>
-
-</footer>
-
-<script>
-
-var vehicle=document.getElementById("vehicle");
-var price=document.getElementById("price");
-
-vehicle.onchange=function(){
-price.innerText="$"+vehicle.value;
-};
-
-</script>
-
-</body>
-</html>
