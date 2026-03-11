@@ -48,16 +48,20 @@ margin-top:20px;
 .hero{
 position:relative;
 height:65vh;
-
-background:
-linear-gradient(to top,#050505 0%,rgba(5,5,5,.4) 40%,rgba(5,5,5,.4) 60%,#050505 100%),
-linear-gradient(to right,#050505 0%,rgba(5,5,5,.4) 20%,rgba(5,5,5,.4) 80%,#050505 100%),
-url("https://images.unsplash.com/photo-1503376780353-7e6692767b70") center center no-repeat;
-
-background-size:90%;
-background-color:#050505;
-
+background:url("https://images.unsplash.com/photo-1503376780353-7e6692767b70") center center / cover no-repeat;
 overflow:hidden;
+}
+
+/* FADE THE CAR INTO BACKGROUND */
+
+.hero::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(5,5,5,0.55);
 }
 
 /* BUTTON */
@@ -292,11 +296,11 @@ src="https://www.google.com/maps?q=Houston,Texas&output=embed">
 
 <script>
 
-var vehicle = document.getElementById("vehicle");
-var price = document.getElementById("price");
+var vehicle=document.getElementById("vehicle");
+var price=document.getElementById("price");
 
-vehicle.onchange = function(){
-price.innerText = "$" + vehicle.value;
+vehicle.onchange=function(){
+price.innerText="$"+vehicle.value;
 };
 
 </script>
