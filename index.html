@@ -43,27 +43,36 @@ font-weight:bold;
 margin-top:20px;
 }
 
-/* HERO SECTION */
+/* HERO BACKGROUND */
 
 .hero{
 position:relative;
 height:65vh;
-background:url("https://images.unsplash.com/photo-1503376780353-7e6692767b70") center center / cover no-repeat;
+background:linear-gradient(135deg,#050505,#0a0a0a,#000000);
 overflow:hidden;
 }
 
-/* BLEND EDGES */
+/* SUBTLE SHINE */
 
 .hero::after{
 content:"";
 position:absolute;
 top:0;
-left:0;
-width:100%;
+left:-150%;
+width:60%;
 height:100%;
-background:
-radial-gradient(circle at center, rgba(0,0,0,0) 40%, #050505 85%),
-linear-gradient(to bottom, #050505 0%, transparent 20%, transparent 80%, #050505 100%);
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.15),
+transparent
+);
+animation:shine 6s infinite;
+}
+
+@keyframes shine{
+0%{left:-150%;}
+100%{left:150%;}
 }
 
 /* BUTTON */
