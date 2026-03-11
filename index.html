@@ -13,7 +13,7 @@
 body{
 font-family:'Poppins',sans-serif;
 margin:0;
-background:#050505;
+background:black;
 color:white;
 text-align:center;
 }
@@ -29,6 +29,7 @@ background:black;
 font-size:42px;
 margin:0;
 letter-spacing:2px;
+color:#3aa3ff;
 }
 
 /* PHONE */
@@ -44,43 +45,20 @@ font-weight:bold;
 margin-top:20px;
 }
 
-/* HERO SHOWROOM BACKGROUND */
+/* HERO BACKGROUND */
 
 .hero{
-position:relative;
-height:65vh;
-overflow:hidden;
-
+height:70vh;
 background:
-radial-gradient(circle at 50% 0%, rgba(255,255,255,0.15), transparent 35%),
-radial-gradient(circle at 20% 0%, rgba(0,120,255,0.15), transparent 40%),
-radial-gradient(circle at 80% 0%, rgba(0,120,255,0.15), transparent 40%),
-linear-gradient(#000000,#050505,#000000);
-}
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
+url("bluewave-bg.jpg");
 
-/* OVERHEAD LIGHT SWEEP */
-
-.hero::after{
-content:"";
-position:absolute;
-top:-200px;
-left:-100%;
-width:200%;
-height:400px;
-
-background:linear-gradient(
-120deg,
-transparent,
-rgba(255,255,255,0.15),
-transparent
-);
-
-animation:lightSweep 8s infinite;
-}
-
-@keyframes lightSweep{
-0%{left:-100%;}
-100%{left:100%;}
+background-size:cover;
+background-position:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 
 /* BUTTON */
@@ -106,10 +84,10 @@ background:#005ad1;
 .motto{
 color:gold;
 font-size:22px;
-margin-top:40px;
+margin-top:20px;
 }
 
-/* SECTION */
+/* SECTIONS */
 
 section{
 padding:60px 20px;
@@ -203,15 +181,17 @@ margin-top:40px;
 <h1>BlueWave Auto Detailing</h1>
 </div>
 
-<div class="phone">346-240-6030</div>
+<div class="hero">
 
-<div class="hero"></div>
+<div class="phone">346-240-6030</div>
 
 <a href="tel:3462406030">
 <button>Call Now</button>
 </a>
 
 <p class="motto">Where Every Detail Makes a Difference</p>
+
+</div>
 
 <section>
 
