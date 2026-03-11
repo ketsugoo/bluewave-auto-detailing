@@ -18,7 +18,7 @@ color:white;
 text-align:center;
 }
 
-/* BRAND */
+/* HEADER */
 
 .brand{
 padding:25px;
@@ -28,6 +28,7 @@ background:black;
 .brand h1{
 font-size:42px;
 margin:0;
+letter-spacing:1px;
 }
 
 /* PHONE */
@@ -46,33 +47,14 @@ margin-top:20px;
 /* HERO BACKGROUND */
 
 .hero{
-position:relative;
 height:65vh;
-background:linear-gradient(135deg,#050505,#0a0a0a,#000000);
-overflow:hidden;
-}
 
-/* SUBTLE SHINE */
+background:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
+url("https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98");
 
-.hero::after{
-content:"";
-position:absolute;
-top:0;
-left:-150%;
-width:60%;
-height:100%;
-background:linear-gradient(
-120deg,
-transparent,
-rgba(255,255,255,0.15),
-transparent
-);
-animation:shine 6s infinite;
-}
-
-@keyframes shine{
-0%{left:-150%;}
-100%{left:150%;}
+background-size:cover;
+background-position:center;
 }
 
 /* BUTTON */
@@ -86,6 +68,7 @@ background:#007BFF;
 color:white;
 border-radius:8px;
 cursor:pointer;
+transition:.3s;
 }
 
 button:hover{
@@ -100,7 +83,7 @@ font-size:22px;
 margin-top:40px;
 }
 
-/* SECTIONS */
+/* SECTION */
 
 section{
 padding:60px 20px;
